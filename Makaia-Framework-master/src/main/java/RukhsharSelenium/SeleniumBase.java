@@ -1,4 +1,4 @@
-package tests;
+package RukhsharSelenium;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.testng.Reporter;
 
 public class SeleniumBase {
 	
@@ -41,6 +41,7 @@ public class SeleniumBase {
 	    System.setProperty("webdriver.chrome.driver",".\\src\\main\\java\\drivers\\safaridriver.exe");
 				
 		driver = new SafariDriver();
+	
 			    
 	    }
 		
@@ -53,6 +54,7 @@ public class SeleniumBase {
 		Thread.sleep(5000);
 		
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.MILLISECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.MILLISECONDS);
 		
 	   }
 	 
@@ -61,6 +63,7 @@ public class SeleniumBase {
 		 
 			driver.findElement(By.xpath(enterXpath)).sendKeys(text);
 			System.out.println("User has entered text : " +text);
+			Reporter.log("User has entered text : " +text);
 	 }
 	 
 	 public String getTextByXpath(String enterXpath) {
@@ -72,6 +75,15 @@ public class SeleniumBase {
 		 
 			driver.findElement(By.id(enterID)).sendKeys(text);
 			System.out.println("User has entered text : " +text);
+			Reporter.log("User has entered text : " +text);
+	 }
+	 
+	 public void enterTextByName(String enterByName , String text) {
+		 
+			driver.findElement(By.name(enterByName)).sendKeys(text);
+			System.out.println("User has entered text : " +text);
+			Reporter.log("User has entered text : " +text);
+			
 	 }
 	 
 	 
@@ -80,6 +92,7 @@ public class SeleniumBase {
     	 driver.findElement(By.xpath(enterXpath)).click();
     	 String text = driver.findElement(By.xpath(enterXpath)).getText();
     	 System.out.println("User has clicked on " +text + " button");
+    	 Reporter.log("User has clicked on " +text + " button");
     	 
       }
      
@@ -96,6 +109,7 @@ public class SeleniumBase {
     	 Select dd = new Select(driver.findElement(By.id(enterID)));
  		 dd.selectByVisibleText(text); 
  		 System.out.println("User has selected " +text+ " from the dropdown");
+ 		 Reporter.log("User has selected " +text+ " from the dropdown");
      }
         
         public void swichToWindow(int window) {

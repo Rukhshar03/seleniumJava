@@ -1,4 +1,4 @@
-package tests;
+package RukhsharSelenium;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.List;
@@ -13,7 +13,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class SeleniumJava2 extends SeleniumBase{
+public class CreateGmailAccount_TC_01 extends SeleniumBase{
 	
 	SeleniumBase sb = new SeleniumBase();
 	GmailLocator gl = new GmailLocator();
@@ -25,7 +25,7 @@ public class SeleniumJava2 extends SeleniumBase{
 		sb.launchBrower("chrome",url);	
 	}
 	
-	@Test
+	@Test()
 	public void gmailAccountCreation() throws InterruptedException {
 		
 		sb.clickByXpath(gl.enterButtonMyself);
